@@ -411,6 +411,7 @@ MonoBehaviour:
   - 5
   - 8.5
   problem: {fileID: 6066512753315723401, guid: 4551f1b6e316df849badc8540f5b329b, type: 3}
+  problemWidth: 8
 --- !u!1 &596995547
 GameObject:
   m_ObjectHideFlags: 0

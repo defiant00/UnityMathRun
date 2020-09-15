@@ -6,7 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 	public float[] widths;
 
 	public GameObject problem;
-	public float problemWidth = 6;
+	public float problemWidth = 8;
 
 	float counter = 6;
 	int spawnCount = 0;
@@ -27,7 +27,7 @@ public class ObstacleSpawner : MonoBehaviour
 			}
 			else
 			{
-				int id = Random.Range(0, Mathf.Min(GameState.problemCount / NUM_PROBLEMS_DIFFICULTY_INCREASE, obstacles.Length));
+				int id = Random.Range(0, Mathf.Min((GameState.problemCount / NUM_PROBLEMS_DIFFICULTY_INCREASE) + 1, obstacles.Length));
 				counter += Random.Range(widths[id] + 4, widths[id] + 8);
 				Instantiate(obstacles[id], transform).transform.localPosition = new Vector3(8, 0, 0);
 			}
