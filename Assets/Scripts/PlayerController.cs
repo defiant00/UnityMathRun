@@ -30,35 +30,35 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		if (isGrounded && Input.GetButtonDown("Jump"))
+		if (GameState.Active)
 		{
-			isGrounded = false;
-			velocity.y = Jump;
-		}
-		else if (Input.GetButtonUp("Jump"))
-		{
-			velocity.y = Mathf.Min(velocity.y, 0);
-		}
+			if (isGrounded && Input.GetButtonDown("Jump"))
+			{
+				isGrounded = false;
+				velocity.y = Jump;
+			}
+			else if (Input.GetButtonUp("Jump"))
+			{
+				velocity.y = Mathf.Min(velocity.y, 0);
+			}
 
-		float vert = Input.GetAxis("Vertical");
-		if (isGrounded && vert < -0.1f)
-		{
-			// sploot
-			box.offset = new Vector2(0, -0.4f);
-			box.size = new Vector2(1, 0.2f);
-		}
-		else
-		{
-			box.offset = Vector2.zero;
-			box.size = Vector2.one;
+			float vert = Input.GetAxis("Vertical");
+			if (isGrounded && vert < -0.1f)
+			{
+				// sploot
+				box.offset = new Vector2(0, -0.4f);
+				box.size = new Vector2(1, 0.2f);
+			}
+			else
+			{
+				box.offset = Vector2.zero;
+				box.size = Vector2.one;
+			}
 		}
 	}
 
 	void FixedUpdate()
 	{
-		// Scrolling
-		GameState.scrollSpeed += Time.fixedDeltaTime;
-
 		// Player physics
 		velocity += Physics2D.gravity * Time.fixedDeltaTime;
 
