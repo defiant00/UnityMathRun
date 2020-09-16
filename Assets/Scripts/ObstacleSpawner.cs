@@ -22,7 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
 			if (spawnCount % PROBLEM_INTERVAL == 0)
 			{
 				GameState.problemCount++;
-				counter += Random.Range(problemWidth + 4, problemWidth + 8);
+				counter += Random.Range(problemWidth + 5, problemWidth + 8);
 				Instantiate(problem, transform).transform.localPosition = new Vector3(8, 0, 0);
 			}
 			else

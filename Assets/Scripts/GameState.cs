@@ -20,6 +20,7 @@ public class GameState : MonoBehaviour
 	public static float scrollSpeed = NORMAL_SCROLL_SPEED;
 	public static int problemCount = 0;
 	public static decimal totalDistance = 0;
+	public static IProblem problem = new AllProblems();
 
 	private static CurrentGameState _state = CurrentGameState.Running;
 	public static CurrentGameState State
