@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-class Factor1 : IProblem
+class Multiple1 : IProblem
 {
 	public ProblemData GetProblem()
 	{
@@ -11,6 +11,6 @@ class Factor1 : IProblem
 		{
 			wrong = Random.Range(1, factor * 12 + 1);
 		} while (wrong % factor == 0);
-		return new ProblemData($"Factor of {factor}", answer.ToString(), wrong.ToString());
+		return new ProblemData($"Multiple of {factor}", answer.ToString(), wrong.ToString());
 	}
 }

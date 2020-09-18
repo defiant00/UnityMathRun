@@ -7,7 +7,7 @@ class AllProblems : IProblem
 		new Addition2(),
 		new Comparison1(),
 		new Division1(),
-		new Factor1(),
+		new Multiple1(),
 		new Multiplication1(),
 		new Primes1(),
 		new Subtraction1(),
