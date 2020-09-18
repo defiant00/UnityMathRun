@@ -56,6 +56,9 @@ public class GameState : MonoBehaviour
 
 	private static float timer = 0;
 
+	private CurrentGameState priorState = CurrentGameState.Running;
+	public GameObject retryMenu;
+
 	void Start()
 	{
 		scrollSpeed = NORMAL_SCROLL_SPEED;
@@ -77,5 +80,8 @@ public class GameState : MonoBehaviour
 				else if (State == CurrentGameState.Tripped) State = CurrentGameState.Done;
 			}
 		}
+
+		if (State != priorState && State == CurrentGameState.Done) { retryMenu.SetActive(true); }
+		priorState = State;
 	}
 }

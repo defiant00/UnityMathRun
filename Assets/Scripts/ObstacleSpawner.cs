@@ -8,7 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
 	public GameObject problem;
 	public float problemWidth = 8;
 
-	float counter = 6;
+	float counter = 10;
 	int spawnCount = 0;
 	const int PROBLEM_INTERVAL = 5;
 	const int NUM_PROBLEMS_DIFFICULTY_INCREASE = 4;
