@@ -13,7 +13,7 @@ public class QuestionController : MonoBehaviour
 	private void Start()
 	{
 		wall = transform.Find("Wall").gameObject;
-		data = GameState.problem.GetProblem();
+		data = GameState.problemGenerator.GetProblem();
 		correctChoice = Random.Range(1, 3);
 		questionText = transform.Find("Canvas/Question").GetComponent<TextMeshProUGUI>();
 		answer1Text = transform.Find("Canvas/Answer 1").GetComponent<TextMeshProUGUI>();

@@ -10,17 +10,24 @@ public class GameState : MonoBehaviour
 		Done,
 	}
 
-	const float NORMAL_SCROLL_SPEED = 5;
+	// Main Menu
+	public static int problemIndex = 0;
+	public static int speedIndex = 1;
+
+	public const float SLOW_SCROLL_SPEED = 3;
+	public const float NORMAL_SCROLL_SPEED = 5;
+	public const float FAST_SCROLL_SPEED = 8;
 	const float PROBLEM_SCROLL_SPEED = 0.5f;
 	const float TRIPPED_SCROLL_SPEED = 1;
 
 	const float PROBLEM_TIMER = 4;
 	const float TRIPPED_TIMER = 2;
 
-	public static float scrollSpeed = NORMAL_SCROLL_SPEED;
+	public static float runningSpeed;
+	public static float scrollSpeed;
 	public static int problemCount = 0;
 	public static decimal totalDistance = 0;
-	public static IProblem problem = new AllProblems();
+	public static IProblem problemGenerator;
 
 	private static CurrentGameState _state = CurrentGameState.Running;
 	public static CurrentGameState State
@@ -34,7 +41,7 @@ public class GameState : MonoBehaviour
 				switch (_state)
 				{
 					case CurrentGameState.Running:
-						scrollSpeed = NORMAL_SCROLL_SPEED;
+						scrollSpeed = runningSpeed;
 						break;
 					case CurrentGameState.Problem:
 						scrollSpeed = PROBLEM_SCROLL_SPEED;
@@ -61,7 +68,7 @@ public class GameState : MonoBehaviour
 
 	void Start()
 	{
-		scrollSpeed = NORMAL_SCROLL_SPEED;
+		scrollSpeed = runningSpeed;
 		problemCount = 0;
 		totalDistance = 0;
 		State = CurrentGameState.Running;
