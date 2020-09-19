@@ -23,11 +23,11 @@ public class GameState : MonoBehaviour
 	const float PROBLEM_TIMER = 4;
 	const float TRIPPED_TIMER = 2;
 
-	public static float runningSpeed;
-	public static float scrollSpeed;
+	public static float runningSpeed = NORMAL_SCROLL_SPEED;
+	public static float scrollSpeed = NORMAL_SCROLL_SPEED;
 	public static int problemCount = 0;
 	public static decimal totalDistance = 0;
-	public static IProblem problemGenerator;
+	public static IProblem problemGenerator = new Addition1();
 
 	private static CurrentGameState _state = CurrentGameState.Running;
 	public static CurrentGameState State
