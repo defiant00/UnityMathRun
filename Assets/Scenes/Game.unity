@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ace0ffbb0a805a44a55bb2d2de04e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: 7
+  Jump: 6
   minGroundNormalY: 0.65
 --- !u!114 &596995553
 MonoBehaviour:

@@ -2,8 +2,10 @@
 
 public class PlayerController : MonoBehaviour
 {
-	public float Jump = 7;
+	public float Jump = 6;
 	public float minGroundNormalY = 0.65f;
+
+	private float minJump = 2;
 
 	private Vector2 velocity;
 	private bool isGrounded;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else if (Input.GetButtonUp("Jump"))
 			{
-				velocity.y = Mathf.Min(velocity.y, 0);
+				velocity.y = Mathf.Min(velocity.y, minJump);
 			}
 
 			float vert = Input.GetAxis("Vertical");

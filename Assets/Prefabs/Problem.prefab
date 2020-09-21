@@ -448,6 +448,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2639befa04e774ea9b2286b12208d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionText: {fileID: 7083434846010084224}
+  answer1Text: {fileID: 7097354561543974600}
+  answer2Text: {fileID: 4241517608230739533}
+  wall: {fileID: 4375529464454224861}
+  correctSprite: {fileID: 7915073754930829435, guid: f8bf332b170ce044fa07373138e61da3, type: 3}
+  wrongSprite: {fileID: -7623127877837247841, guid: f8bf332b170ce044fa07373138e61da3, type: 3}
 --- !u!1 &7415340509163881506
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +646,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
