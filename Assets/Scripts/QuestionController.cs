@@ -6,6 +6,7 @@ public class QuestionController : MonoBehaviour
 	public TextMeshProUGUI questionText, answer1Text, answer2Text;
 	public GameObject wall;
 	public Sprite correctSprite, wrongSprite;
+	public ParticleSystem correctParticles;
 
 	private ProblemData data;
 	private int correctChoice;
@@ -30,6 +31,9 @@ public class QuestionController : MonoBehaviour
 			{
 				renderer.sprite = correctSprite;
 				Destroy(wall);
+				var p = correctParticles.transform.position;
+				//correctParticles.transform.position = new Vector3(choice == 1 ? 5 : 9, p.y, p.z);
+				correctParticles.Play();
 			}
 			else
 			{
