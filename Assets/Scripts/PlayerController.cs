@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour
 
 	private Vector2 velocity;
 	private bool isGrounded;
+	private bool sploot;
 
-	private BoxCollider2D box;
+	private Animator animator;
+	private CapsuleCollider2D capsule;
 	private Rigidbody2D body;
 	private ContactFilter2D contactFilter;
 	private RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
@@ -20,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		box = GetComponent<BoxCollider2D>();
+		animator = GetComponent<Animator>();
+
+		capsule = GetComponent<CapsuleCollider2D>();
 
 		body = GetComponent<Rigidbody2D>();
 		body.isKinematic = true;
@@ -45,18 +49,25 @@ public class PlayerController : MonoBehaviour
 			}
 
 			float vert = Input.GetAxis("Vertical");
-			if (isGrounded && vert < -0.1f)
+			if (isGrounded && vert < -0.5f)
 			{
-				// sploot
-				box.offset = new Vector2(0, -0.4f);
-				box.size = new Vector2(1, 0.2f);
+				sploot = true;
+				capsule.offset = new Vector2(0, -0.45f);
+				capsule.size = new Vector2(0.4f, 0.1f);
 			}
 			else
 			{
-				box.offset = Vector2.zero;
-				box.size = Vector2.one;
+				sploot = false;
+				capsule.offset = Vector2.zero;
+				capsule.size = Vector2.one;
 			}
 		}
+
+		animator.SetFloat("Y Velocity", velocity.y);
+		animator.SetBool("On Ground", isGrounded);
+		animator.SetBool("Problem", GameState.State == GameState.CurrentGameState.Problem);
+		animator.SetBool("Sploot", sploot);
+		animator.SetBool("Trip", !GameState.Active);
 	}
 
 	void FixedUpdate()
