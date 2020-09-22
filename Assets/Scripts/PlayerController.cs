@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour
 				capsule.size = Vector2.one;
 			}
 		}
+		else
+		{
+			velocity.y = Mathf.Min(velocity.y, minJump);
+		}
 
 		animator.SetFloat("Y Velocity", velocity.y);
 		animator.SetBool("On Ground", isGrounded);
