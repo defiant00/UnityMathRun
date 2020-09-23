@@ -74,6 +74,24 @@ TextureImporter:
   - first:
       213: -7038581286903584236
     second: Red Panda_13
+  - first:
+      213: -806486318355296574
+    second: Red Panda_10
+  - first:
+      213: -9057293734960641894
+    second: Red Panda_11
+  - first:
+      213: -1593393537876405821
+    second: Red Panda_12
+  - first:
+      213: 926728238764695023
+    second: Red Panda_13
+  - first:
+      213: 8190326843567464513
+    second: Red Panda_14
+  - first:
+      213: 4628539237930001779
+    second: Red Panda_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -385,8 +403,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 191ef3e6ae9d97d80800000000000000
-      internalID: -8252325241284468335
+      spriteID: 2ce483667f8cec4f0800000000000000
+      internalID: -806486318355296574
       vertices: []
       indices: 
       edges: []
@@ -406,8 +424,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c040b322d115a9520800000000000000
-      internalID: 2709567311386969100
+      spriteID: a98cc4de5570e4280800000000000000
+      internalID: -9057293734960641894
       vertices: []
       indices: 
       edges: []
@@ -427,8 +445,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a355e91e568477070800000000000000
-      internalID: 8104025656890643770
+      spriteID: 3c1597bf40123e9e0800000000000000
+      internalID: -1593393537876405821
       vertices: []
       indices: 
       edges: []
@@ -448,8 +466,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41a666f8c9fe15e90800000000000000
-      internalID: -7038581286903584236
+      spriteID: fed94e25c666cdc00800000000000000
+      internalID: 926728238764695023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red Panda_14
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1406f29bed2e9a170800000000000000
+      internalID: 8190326843567464513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red Panda_15
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37566c1f9efdb3040800000000000000
+      internalID: 4628539237930001779
       vertices: []
       indices: 
       edges: []

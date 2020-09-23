@@ -7,11 +7,11 @@ public class QuestionController : MonoBehaviour
 	public GameObject wall;
 	public Sprite correctSprite, wrongSprite;
 	public ParticleSystem correctParticles;
+	public ParticleSystem[] waspParticles;
 
 	private ProblemData data;
 	private int correctChoice;
 	private bool answered = false;
-
 
 	private void Start()
 	{
@@ -31,9 +31,13 @@ public class QuestionController : MonoBehaviour
 			{
 				renderer.sprite = correctSprite;
 				Destroy(wall);
-				var p = correctParticles.transform.position;
-				//correctParticles.transform.position = new Vector3(choice == 1 ? 5 : 9, p.y, p.z);
+				var lp = correctParticles.transform.localPosition;
+				correctParticles.transform.localPosition = new Vector3(choice == 1 ? 5 : 9, lp.y, lp.z);
 				correctParticles.Play();
+				foreach (var p in waspParticles)
+				{
+					p.Play();
+				}
 			}
 			else
 			{
