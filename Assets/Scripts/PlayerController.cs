@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
 	public float Jump = 6;
 	public float minGroundNormalY = 0.65f;
+	public AudioClip jumpSound, splootSound, unsplootSound, shockedSound, tripSound;
 
 	private float minJump = 2;
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 	private Animator animator;
 	private CapsuleCollider2D capsule;
 	private Rigidbody2D body;
+	private AudioSource audioSource;
 	private ContactFilter2D contactFilter;
 	private RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
 
@@ -23,11 +25,10 @@ public class PlayerController : MonoBehaviour
 	void Start()
 	{
 		animator = GetComponent<Animator>();
-
 		capsule = GetComponent<CapsuleCollider2D>();
-
 		body = GetComponent<Rigidbody2D>();
 		body.isKinematic = true;
+		audioSource = GetComponent<AudioSource>();
 
 		contactFilter.useTriggers = false;
 		contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
@@ -42,24 +43,36 @@ public class PlayerController : MonoBehaviour
 			{
 				isGrounded = false;
 				velocity.y = Jump;
+				audioSource.PlayOneShot(jumpSound);
 			}
 			else if (Input.GetButtonUp("Jump"))
 			{
 				velocity.y = Mathf.Min(velocity.y, minJump);
 			}
 
-			float vert = Input.GetAxis("Vertical");
-			if (isGrounded && vert < -0.5f)
+			if (GameState.State == GameState.CurrentGameState.Running)
 			{
-				sploot = true;
-				capsule.offset = new Vector2(0, -0.45f);
-				capsule.size = new Vector2(0.4f, 0.1f);
-			}
-			else
-			{
-				sploot = false;
-				capsule.offset = Vector2.zero;
-				capsule.size = Vector2.one;
+				float vert = Input.GetAxis("Vertical");
+				if (isGrounded && vert < -0.5f)
+				{
+					if (!sploot)
+					{
+						audioSource.PlayOneShot(splootSound);
+					}
+					sploot = true;
+					capsule.offset = new Vector2(0, -0.45f);
+					capsule.size = new Vector2(0.4f, 0.1f);
+				}
+				else
+				{
+					if (sploot)
+					{
+						audioSource.PlayOneShot(unsplootSound);
+					}
+					sploot = false;
+					capsule.offset = Vector2.zero;
+					capsule.size = Vector2.one;
+				}
 			}
 		}
 		else
@@ -73,6 +86,9 @@ public class PlayerController : MonoBehaviour
 		animator.SetBool("Sploot", sploot);
 		animator.SetBool("Trip", !GameState.Active);
 	}
+
+	public void PlayTrippedSound() => audioSource.PlayOneShot(tripSound);
+	public void PlayShockedSound() => audioSource.PlayOneShot(shockedSound);
 
 	void FixedUpdate()
 	{
