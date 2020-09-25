@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
 	public float Jump = 6;
 	public float minGroundNormalY = 0.65f;
-	public AudioClip jumpSound, splootSound, unsplootSound, shockedSound, tripSound;
+	public AudioClip jumpSound, landSound, splootSound, unsplootSound, shockedSound, tripSound;
 
 	private float minJump = 2;
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
-					if (sploot)
+					if (sploot && isGrounded)
 					{
 						audioSource.PlayOneShot(unsplootSound);
 					}
@@ -73,6 +73,10 @@ public class PlayerController : MonoBehaviour
 					capsule.offset = Vector2.zero;
 					capsule.size = Vector2.one;
 				}
+			}
+			else
+			{
+				sploot = false;
 			}
 		}
 		else
@@ -95,12 +99,19 @@ public class PlayerController : MonoBehaviour
 		// Player physics
 		velocity += Physics2D.gravity * Time.fixedDeltaTime;
 
+		bool priorGrounded = isGrounded;
+
 		isGrounded = false;
 
 		var deltaPosition = velocity * Time.fixedDeltaTime;
 		var move = Vector2.up * deltaPosition.y;
 
 		PerformMovement(move);
+
+		if (isGrounded && !priorGrounded)
+		{
+			audioSource.PlayOneShot(landSound);
+		}
 	}
 
 	void PerformMovement(Vector2 move)

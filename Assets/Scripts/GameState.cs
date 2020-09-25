@@ -83,12 +83,21 @@ public class GameState : MonoBehaviour
 			timer -= Time.deltaTime;
 			if (timer < 0)
 			{
-				if (State == CurrentGameState.Problem) State = CurrentGameState.Running;
-				else if (State == CurrentGameState.Tripped) State = CurrentGameState.Done;
+				if (State == CurrentGameState.Problem)
+				{
+					State = CurrentGameState.Running;
+				}
+				else if (State == CurrentGameState.Tripped)
+				{
+					State = CurrentGameState.Done;
+				}
 			}
 		}
 
-		if (State != priorState && State == CurrentGameState.Done) { retryMenu.SetActive(true); }
+		if (State != priorState && State == CurrentGameState.Done)
+		{
+			retryMenu.SetActive(true);
+		}
 		priorState = State;
 	}
 }

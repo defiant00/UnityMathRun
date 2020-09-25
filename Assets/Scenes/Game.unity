@@ -834,6 +834,7 @@ MonoBehaviour:
   Jump: 6
   minGroundNormalY: 0.65
   jumpSound: {fileID: 8300000, guid: 395d2f1f78791924b8b23edeac05f7b2, type: 3}
+  landSound: {fileID: 8300000, guid: 92e6f9e58649254419ae9aba97fbcf69, type: 3}
   splootSound: {fileID: 8300000, guid: 979097f0731190647b35db8e6c48bc86, type: 3}
   unsplootSound: {fileID: 8300000, guid: e6b8ca3752c7eb548a2adff65c16fd7c, type: 3}
   shockedSound: {fileID: 8300000, guid: 0de7170cc59947043ac24b9265d5338d, type: 3}
