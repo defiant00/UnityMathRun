@@ -21,7 +21,7 @@ public class GameState : MonoBehaviour
 	const float TRIPPED_SCROLL_SPEED = 1;
 
 	const float PROBLEM_TIMER = 4;
-	const float TRIPPED_TIMER = 2;
+	const float TRIPPED_TIMER = 0.5f;
 
 	public static float runningSpeed = NORMAL_SCROLL_SPEED;
 	public static float scrollSpeed = NORMAL_SCROLL_SPEED;
